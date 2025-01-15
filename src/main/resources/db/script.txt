@@ -1,0 +1,10 @@
+trip_episodes
+id bigint
+title text
+date_created timestamptz
+
+leading_episodes
+id bigint
+title text
+interviewee text
+date_created timestamptz
