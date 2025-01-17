@@ -8,3 +8,11 @@ id bigint
 title text
 interviewee text
 date_created timestamptz
+
+CREATE DATABASE the_rest_is_politics
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LOCALE_PROVIDER = 'libc'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
