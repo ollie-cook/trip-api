@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,21 +22,21 @@ public class TripEpisodeController {
         this.tripEpisodeService = tripEpisodeService;
   }
 
+  @GetMapping("/episodes/{episodeId}")
+  public TripEpisode getTripEpisode(@PathVariable int episodeId) {
+      TripEpisode episode = tripEpisodeService.findById(episodeId);
+      return episode; 
+  }
+
   @GetMapping("/episodes")
   public List<TripEpisode> findAll() {
       List<TripEpisode> episodes = tripEpisodeService.findAll();
       return episodes;
   }
 
-  @GetMapping("/episodes/{episodeId}")
-  public TripEpisode getTripEpisode(@PathVariable int episodeId) {
-      TripEpisode episode = tripEpisodeService.findById(episodeId);
-      System.out.println(episode);
-      return episode; 
-  }
-
-  @GetMapping("/hello")
-  public String hello() {
-    return "Hello World!";
+  @PostMapping("/episodes")
+  public TripEpisode addTripEpisodes(@RequestBody TripEpisode tripEpisode) {
+    TripEpisode episode = tripEpisodeService.save(tripEpisode);
+    return episode;
   }
 }

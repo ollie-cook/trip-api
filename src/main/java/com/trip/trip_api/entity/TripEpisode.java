@@ -1,6 +1,6 @@
 package com.trip.trip_api.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TripEpisode {
-  @Id
-  @Column(name="id")
-  private int id;
+    @Id
+    @Column(name="id")
+    private int id;
 
-  @Column(name="title")
-  private String title;
+    @Column(name="title")
+    private String title;
 
-  @Column(name="date_created")
-  private Timestamp dateCreated;
+    @Column(name="date_created")
+    private LocalDate dateCreated;
 
     public int getId() {
         return id;
@@ -40,11 +40,11 @@ public class TripEpisode {
         this.title = title;
     }
 
-    public Timestamp getDateCreated() {
+    public LocalDate getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Timestamp dateCreated) {
+    public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
     }
 

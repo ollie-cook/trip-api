@@ -35,4 +35,10 @@ public class TripEpisodeServiceImpl implements TripEpisodeService {
         List<TripEpisode> tripEpisodes = tripEpisodeRepository.findAll();
         return tripEpisodes;
     }
+
+    @Override
+    public TripEpisode save(TripEpisode tripEpisode) {
+        TripEpisode episode = tripEpisodeRepository.save(tripEpisode);
+        return episode;
+    }
 }

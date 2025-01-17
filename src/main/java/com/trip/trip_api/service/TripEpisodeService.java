@@ -9,4 +9,6 @@ public interface TripEpisodeService {
     TripEpisode findById(int id);
 
     List<TripEpisode> findAll();
+
+    TripEpisode save(TripEpisode tripEpisode);
 }
