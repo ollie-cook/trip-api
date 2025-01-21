@@ -6,7 +6,7 @@ import com.trip.trip_api.entity.TripEpisode;
 
 public interface TripEpisodeService {
 
-    TripEpisode findById(int id);
+    TripEpisode findById(int episodeNo);
 
     List<TripEpisode> findAll();
 

@@ -15,9 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TripEpisode {
+
+    @Column(name="uuid")
+    private UUID uuid;
+
     @Id
-    @Column(name="id")
-    private int id;
+    @Column(name="episode_no")
+    private int episodeNo;
 
     @Column(name="title")
     private String title;
@@ -27,19 +31,17 @@ public class TripEpisode {
 
     @Column(name="url")
     private String url;
-
-    @Column(name="uuid")
-    private UUID uuid;
+    
 
     @Column(name="date_created")
     private LocalDate dateCreated;
 
     public int getId() {
-        return id;
+        return episodeNo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int episodeNo) {
+        this.episodeNo = episodeNo;
     } 
 
     public String getTitle() {
@@ -85,7 +87,7 @@ public class TripEpisode {
     @Override
     public String toString() {
         return "TripEpisode{" +
-            "id=" + id +
+            "episodeNo=" + episodeNo +
             ", title='" + title + '\'' +
             ", dateCreated=" + dateCreated +
             '}';

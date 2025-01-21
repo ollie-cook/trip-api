@@ -17,14 +17,14 @@ public class TripEpisodeServiceImpl implements TripEpisodeService {
     private TripEpisodeRepository tripEpisodeRepository;
 
     @Override
-    public TripEpisode findById(int id) {
+    public TripEpisode findById(int episodeNo) {
 
-        Optional<TripEpisode> result = tripEpisodeRepository.findById(id);
+        Optional<TripEpisode> result = tripEpisodeRepository.findById(episodeNo);
         TripEpisode tripEpisode = null;
         if (result.isPresent()) {
             tripEpisode = result.get();
         } else {
-            throw new RuntimeException("Did not find tripEpisode id - " + id);
+            throw new RuntimeException("Did not find episode - " + episodeNo);
         }
         
         return tripEpisode;
