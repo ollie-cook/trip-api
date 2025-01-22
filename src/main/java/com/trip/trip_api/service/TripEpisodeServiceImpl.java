@@ -31,6 +31,11 @@ public class TripEpisodeServiceImpl implements TripEpisodeService {
     }
 
     @Override
+    public TripEpisode findByEpisodeNo(int episodeNo) {
+        TripEpisode result = tripEpisodeRepository.findByEpisodeNo(episodeNo);
+    }
+
+    @Override
     public List<TripEpisode> findAll() {
         List<TripEpisode> tripEpisodes = tripEpisodeRepository.findAll();
         return tripEpisodes;

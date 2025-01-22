@@ -8,6 +8,8 @@ public interface TripEpisodeService {
 
     TripEpisode findById(int episodeNo);
 
+    TripEpisode findByEpisodeNo(int episodeNo);
+
     List<TripEpisode> findAll();
 
     TripEpisode save(TripEpisode tripEpisode);
