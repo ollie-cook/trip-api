@@ -27,3 +27,18 @@ CREATE TABLE public.trip_episodes
 
 ALTER TABLE IF EXISTS public.trip_episodes
     OWNER to postgres;
+
+//Script to create reading_material tableCREATE TABLE public.reading_material
+(
+    uuid uuid NOT NULL,
+    title text,
+    description text,
+    author text,
+    url text,
+    type text,
+    episode_uuid uuid,
+    PRIMARY KEY (uuid)
+);
+
+ALTER TABLE IF EXISTS public.reading_material
+    OWNER to postgres;
