@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TripEpisode {
 
+    @Id
     @Column(name="uuid")
     private UUID uuid;
 
-    @Id
     @Column(name="episode_no")
     private int episodeNo;
 

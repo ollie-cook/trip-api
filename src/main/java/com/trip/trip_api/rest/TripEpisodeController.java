@@ -24,7 +24,7 @@ public class TripEpisodeController {
 
   @GetMapping("/episodes/{episodeId}")
   public TripEpisode getTripEpisode(@PathVariable int episodeId) {
-      TripEpisode episode = tripEpisodeService.findById(episodeId);
+      TripEpisode episode = tripEpisodeService.findByEpisodeNo(episodeId);
       return episode; 
   }
 

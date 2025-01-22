@@ -25,5 +25,5 @@ CREATE TABLE public.trip_episodes
     date_created date NOT NULL
 );
 
-ALTER TABLE IF EXISTS public.trip_episodes_temp
+ALTER TABLE IF EXISTS public.trip_episodes
     OWNER to postgres;
