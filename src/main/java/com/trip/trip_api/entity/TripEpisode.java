@@ -2,10 +2,12 @@ package com.trip.trip_api.entity;
 
 import java.time.LocalDate;
 import java.util.UUID;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,9 @@ public class TripEpisode {
 
     @Column(name="date_created")
     private LocalDate dateCreated;
+
+    @OneToMany(mappedBy = "tripEpisode")
+    Set<ReadingMaterial> readingMaterials;
 
     public int getId() {
         return episodeNo;
@@ -82,6 +87,14 @@ public class TripEpisode {
 
     public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public Set<ReadingMaterial> getReadingMaterials() {
+        return readingMaterials;
+    }
+    
+    public void setReadingMaterials(Set<ReadingMaterial> readingMaterials) {
+        this.readingMaterials = readingMaterials;
     }
 
     @Override
