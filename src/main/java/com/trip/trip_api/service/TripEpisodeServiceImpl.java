@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.trip.trip_api.dao.TripEpisodeRepository;
 import com.trip.trip_api.entity.TripEpisode;
@@ -32,8 +34,18 @@ public class TripEpisodeServiceImpl implements TripEpisodeService {
 
     @Override
     public TripEpisode findByEpisodeNo(int episodeNo) {
-        TripEpisode result = tripEpisodeRepository.findByEpisodeNo(episodeNo);
-        return result;
+
+        Optional<TripEpisode> result = tripEpisodeRepository.findByEpisodeNo(episodeNo);
+        TripEpisode tripEpisode = null;
+        if (result.isPresent()) {
+            tripEpisode = result.get();
+        } else {
+            throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Did not find episode - " + episodeNo
+            );
+        }
+
+        return tripEpisode;
     }
 
     @Override

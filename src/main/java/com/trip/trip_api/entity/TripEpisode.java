@@ -41,11 +41,11 @@ public class TripEpisode {
     @OneToMany(mappedBy = "tripEpisode")
     Set<ReadingMaterial> readingMaterials;
 
-    public int getId() {
+    public int getEpisodeNo() {
         return episodeNo;
     }
 
-    public void setId(int episodeNo) {
+    public void setEpisodeNo(int episodeNo) {
         this.episodeNo = episodeNo;
     } 
 
