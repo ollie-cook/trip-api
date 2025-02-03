@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import com.trip.trip_api.dao.TripEpisodeRepository;
 import com.trip.trip_api.entity.TripEpisode;
@@ -49,8 +51,8 @@ public class TripEpisodeServiceImpl implements TripEpisodeService {
     }
 
     @Override
-    public List<TripEpisode> findAll() {
-        List<TripEpisode> tripEpisodes = tripEpisodeRepository.findAll();
+    public Page<TripEpisode> findAll(Pageable pageable) {
+        Page<TripEpisode> tripEpisodes = tripEpisodeRepository.findAll(pageable);
         return tripEpisodes;
     }
 

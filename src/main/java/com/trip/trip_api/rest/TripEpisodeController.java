@@ -2,11 +2,15 @@ package com.trip.trip_api.rest;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trip.trip_api.entity.TripEpisode;
@@ -29,8 +33,14 @@ public class TripEpisodeController {
   }
 
   @GetMapping("/episodes")
-  public List<TripEpisode> findAll() {
-      List<TripEpisode> episodes = tripEpisodeService.findAll();
+  public Page<TripEpisode> findAll(@RequestParam(required = false) Integer page) {
+      Page<TripEpisode> episodes = null;
+      if (page == null) {
+        episodes = tripEpisodeService.findAll(null);
+      } else {
+        Pageable pageable = PageRequest.of(page, 3);
+        episodes = tripEpisodeService.findAll(pageable);
+      }
       return episodes;
   }
 

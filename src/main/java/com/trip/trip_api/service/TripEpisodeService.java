@@ -3,6 +3,8 @@ package com.trip.trip_api.service;
 import java.util.List;
 
 import com.trip.trip_api.entity.TripEpisode;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 public interface TripEpisodeService {
 
@@ -10,7 +12,7 @@ public interface TripEpisodeService {
 
     TripEpisode findByEpisodeNo(int episodeNo);
 
-    List<TripEpisode> findAll();
+    Page<TripEpisode> findAll(Pageable pageable);
 
     TripEpisode save(TripEpisode tripEpisode);
 }
