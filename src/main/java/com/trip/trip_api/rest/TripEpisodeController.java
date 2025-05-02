@@ -1,7 +1,5 @@
 package com.trip.trip_api.rest;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
@@ -36,7 +34,7 @@ public class TripEpisodeController {
   public Page<TripEpisode> findAll(@RequestParam(required = false) Integer page) {
       Page<TripEpisode> episodes = null;
       if (page == null) {
-        episodes = tripEpisodeService.findAll(null);
+        episodes = tripEpisodeService.findAll(Pageable.unpaged());
       } else {
         Pageable pageable = PageRequest.of(page, 3);
         episodes = tripEpisodeService.findAll(pageable);
